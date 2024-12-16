@@ -3,7 +3,7 @@ import HeaderRight from "./HeaderRight";
 
 export default function Header() {
   return (
-    <div>
+    <div className="flex justify-between justify-items-center p-4">
       <HeaderLeft />
       <HeaderRight />
     </div>
