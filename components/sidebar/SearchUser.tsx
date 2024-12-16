@@ -7,7 +7,7 @@ export default function SearchUser() {
     <div>
       <HiOutlineUsers />
       <Input
-        placeholder="Search for people"
+        placeholder=" {<HiOutlineUsers />} Search for people"
         type="search"
         className="w-full rounded-lg pl-7 bg-slate-100 placeholder:text-slate-400"
       />
