@@ -1,6 +1,7 @@
 "use client";
 import { getMonth } from "@/lib/getTime";
-import React from "react";
+import React, { Fragment } from "react";
+import MonthViewBox from "./MonthViewBox";
 
 export default function MonthView() {
   const currentMonth = getMonth();
@@ -8,11 +9,12 @@ export default function MonthView() {
   return (
     <section className="grid grid-cols-7 grid-rows-5 border lg:h-screen">
       {currentMonth.map((row, i) => (
-        <div key={i}>
+        <Fragment key={i}>
           {row.map((day, index) => (
-            <h3 key={index}>{day.format("D")}</h3>
+            // <h3 key={index}>{day.format("D")}</h3>
+            <MonthViewBox key={index} day={day} rowIndex={i} />
           ))}
-        </div>
+        </Fragment>
       ))}
     </section>
   );
