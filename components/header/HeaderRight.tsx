@@ -17,9 +17,9 @@ export default function HeaderRight() {
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="light">Day</SelectItem>
-            <SelectItem value="dark">Month</SelectItem>
-            <SelectItem value="system">Year</SelectItem>
+            <SelectItem value="day">Day</SelectItem>
+            <SelectItem value="week">Week</SelectItem>
+            <SelectItem value="month">Month</SelectItem>
           </SelectContent>
         </Select>
       </section>
