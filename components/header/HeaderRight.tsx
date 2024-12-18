@@ -7,8 +7,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useViewStore } from "@/lib/store";
 
 export default function HeaderRight() {
+  const { setView } = useViewStore();
   return (
     <div className="flex gap-2">
       <section>
