@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -12,10 +12,11 @@ import { useViewStore } from "@/lib/store";
 
 export default function HeaderRight() {
   const { setView } = useViewStore();
+  
   return (
     <div className="flex gap-2">
       <section>
-        <Select>
+        <Select onValueChange={(v) => setView(v)}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Theme" />
           </SelectTrigger>

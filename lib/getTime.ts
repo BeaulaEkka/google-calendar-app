@@ -13,3 +13,25 @@ export const getMonth = (month = dayjs().month()) => {
     Array.from({ length: 7 }, () => dayjs(new Date(year, month, ++dayCounter)))
   );
 };
+
+// export const getDay = (day = dayjs().day()) => {
+//   const year = dayjs().year();
+// };
+
+export const getWeekDays = (date: dayjs.Dayjs) => {
+  const startOfWeek = date.startOf("week");
+
+  const weekDates = [];
+
+  //loop through the 7 days of the week
+  for (let i = 0; i < 7; i++) {
+    const currentDate = startOfWeek.add(i, "day");
+    weekDates.push({
+      currentDate,
+      today:
+        currentDate.toDate().toDateString() === dayjs().toDate().toDateString(),
+      isCurrentDay,
+    });
+  }
+  return weekDates;
+};
