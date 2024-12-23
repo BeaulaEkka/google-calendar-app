@@ -1,5 +1,10 @@
+import { getWeekDays } from "@/lib/getTime";
+import { useDateStore } from "@/lib/store";
 import React from "react";
 
 export default function WeekView() {
-  return <div>weekview</div>;
+  const { userSelectedDate } = useDateStore();
+  const Days = getWeekDays(userSelectedDate);
+  console.log("Days", Days);
+  return <></>;
 }

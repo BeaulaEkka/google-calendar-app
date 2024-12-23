@@ -30,7 +30,7 @@ export const getWeekDays = (date: dayjs.Dayjs) => {
       currentDate,
       today:
         currentDate.toDate().toDateString() === dayjs().toDate().toDateString(),
-      isCurrentDay,
+      isCurrentDay: currentDate.isSame(date, "day"),
     });
   }
   return weekDates;
