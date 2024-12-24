@@ -1,10 +1,11 @@
 "use client";
-import { getWeekDays } from "@/lib/getTime";
+import { getHours, getWeekDays } from "@/lib/getTime";
 import { useDateStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import dayjs from "dayjs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import React, { useEffect, useState } from "react";
+import { MdHourglassBottom } from "react-icons/md";
 
 export default function WeekView() {
   const [currentTime, setCurrentTime] = useState(dayjs());
@@ -18,6 +19,7 @@ export default function WeekView() {
     return () => clearInterval(interval);
   }, []);
 
+  console.log(getHours);
   return (
     <>
       <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] place-items-center px-4 ">
@@ -44,8 +46,13 @@ export default function WeekView() {
       {/* Time column $ corresponding Bodes of time per date */}
       <ScrollArea className="h-[70%] border border-green-500">
         <div className="border border-red-500 grid grid-cols-[]auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
-          <div>1</div>
-          <div>2</div>
+          <div className="w-16 border-r border-gray-300">
+            {getHours.map((hour, index) => (
+              <div key={index} className="relative text-sm text-gray-600">
+                <div>{hour.format("hh:mm")}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </ScrollArea>
     </>
