@@ -42,8 +42,12 @@ export default function WeekView() {
         ))}
       </div>
       {/* Time column $ corresponding Bodes of time per date */}
-      <ScrollArea></ScrollArea>
-      <div></div>
+      <ScrollArea className="h-[70%] border border-green-500">
+        <div className="border border-red-500 grid grid-cols-[]auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
+          <div>1</div>
+          <div>2</div>
+        </div>
+      </ScrollArea>
     </>
   );
 }
