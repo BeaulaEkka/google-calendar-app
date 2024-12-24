@@ -46,6 +46,7 @@ export default function WeekView() {
       {/* Time column $ corresponding Bodes of time per date */}
       <ScrollArea className="h-[70%] border border-green-500">
         <div className="border border-red-500 grid grid-cols-[]auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
+          {/* Time column */}
           <div className="w-16 border-r border-gray-300">
             {getHours.map((hour, index) => (
               <div key={index} className="relative text-sm text-gray-600">
