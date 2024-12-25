@@ -18,8 +18,8 @@ export default function WeekView() {
     return () => clearInterval(interval);
   }, []);
 
-  console.log(getHours);
-  console.log("getweekdaya:", getWeekDays(userSelectedDate));
+  // console.log(getHours);
+  // console.log("getweekdaya:", getWeekDays(userSelectedDate));
 
   return (
     <>
