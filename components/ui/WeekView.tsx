@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import dayjs from "dayjs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import React, { useEffect, useState } from "react";
-import { MdHourglassBottom } from "react-icons/md";
 
 export default function WeekView() {
   const [currentTime, setCurrentTime] = useState(dayjs());
@@ -20,6 +19,8 @@ export default function WeekView() {
   }, []);
 
   console.log(getHours);
+  console.log("getweekdaya:", getWeekDays(userSelectedDate));
+
   return (
     <>
       <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] place-items-center px-4 ">
@@ -44,16 +45,44 @@ export default function WeekView() {
         ))}
       </div>
       {/* Time column $ corresponding Bodes of time per date */}
-      <ScrollArea className="h-[70%] border border-green-500">
-        <div className="border border-red-500 grid grid-cols-[]auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
+      <ScrollArea className="h-[80vh] border border-green-500">
+        <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
           {/* Time column */}
           <div className="w-16 border-r border-gray-300">
             {getHours.map((hour, index) => (
-              <div key={index} className="relative text-sm text-gray-600">
+              <div key={index} className="relative h-16 text-sm text-gray-600">
                 <div>{hour.format("hh:mm")}</div>
               </div>
             ))}
           </div>
+          {/* weekdays and corresponding boxes */}
+          {getWeekDays(userSelectedDate).map(
+            ({ isCurrentDay, today }, index) => {
+              const dayDate = userSelectedDate
+                .startOf("week")
+                .add(index, "day");
+              return (
+                <div
+                  key={index}
+                  className="relative border-r   border-gray-300"
+                >
+                  {getHours.map((hour, i) => (
+                    <div
+                      key={i}
+                      className="relative flex h-16 cursor-pointer flex-col items-center gap-y-2 border-b border-gray-300 hover:bg-gray-100"
+                    ></div>
+                  ))}
+                  {/* time indicator */}
+                  {isCurrentDay && today && (
+                    <div
+                      className={cn("absolute h-0.5 w-full bg-red-500")}
+                      style={{ top: `${(currentTime.hour() / 24) * 100}%` }}
+                    />
+                  )}
+                </div>
+              );
+            }
+          )}
         </div>
       </ScrollArea>
     </>
