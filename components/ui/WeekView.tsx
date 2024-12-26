@@ -26,7 +26,7 @@ export default function WeekView() {
       <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] place-items-center px-4 ">
         <div className="w-16 border-r border-gray-300">
           <div className="relative h-16">
-            <div className="absolute top-[40%] text-xs text-gray-600">Mon</div>
+            <div className="absolute top-[40%] text-xs text-gray-600">Time</div>
           </div>
         </div>
         {/**weekview */}
@@ -44,7 +44,7 @@ export default function WeekView() {
           </div>
         ))}
       </div>
-      {/* Time column $ corresponding Bodes of time per date */}
+      {/* Time column $ corresponding Boxes of time per date */}
       <ScrollArea className="h-[80vh] border border-green-500">
         <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr_1fr_1fr] px-4 py-3">
           {/* Time column */}
