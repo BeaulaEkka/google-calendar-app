@@ -1,4 +1,4 @@
-import { getHours, getWeekDays } from "@/lib/getTime";
+import { getHours, isCurrentDay } from "@/lib/getTime";
 import { useDateStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import dayjs from "dayjs";
@@ -46,13 +46,21 @@ export default function DayView() {
           </div>
 
           {/* Right Column */}
-          <div className="">
+          <div className="relative">
             {getHours.map((hour, index) => (
               <div
                 key={index}
                 className="relative flex h-16 cursor-pointer items-center gap-y-2 border-b border-gray-300 hover:bg-gray-100"
               ></div>
             ))}
+            {/* current time indicator */}
+
+            {isCurrentDay(userSelectedDate) && (
+              <div
+                className={cn('absolute h-0.5 w-full bg-red-500')}
+                style={{ top: `${(currentTime.hour() / 24) * 100}%` }}
+              ></div>
+            )}
           </div>
         </div>
       </ScrollArea>

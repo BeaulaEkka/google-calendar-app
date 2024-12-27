@@ -1,4 +1,7 @@
 import dayjs from "dayjs";
+export const isCurrentDay = (day: dayjs.Dayjs) => {
+  return day.isSame(dayjs(), "day");
+};
 
 export const getMonth = (month = dayjs().month()) => {
   const year = dayjs().year();
