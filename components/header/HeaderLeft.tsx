@@ -11,8 +11,24 @@ export default function HeaderLeft() {
   const todaysDate = dayjs();
   const { userSelectedDate, setDate, setMonth, selectedMonthIndex } =
     useDateStore();
-
   const { selectedView } = useViewStore();
+
+  const handlePrevClick = () => {
+    switch (selectedView) {
+      case "month":
+        setMonth(selectedMonthIndex - 1);
+        break;
+      case "week":
+        setDate(todaysDate.subtract(1, "week"));
+        break;
+      case "day":
+        setDate(todaysDate.subtract(1, "day"));
+        setMonth(selectedMonthIndex - 1);
+        break;
+      default:
+        break;
+    }
+  };
 
   const handleTodayClick = () => {
     switch (selectedView) {
@@ -44,7 +60,7 @@ export default function HeaderLeft() {
         Today
       </Button>
       <section className="flex gap-5">
-        <IoIosArrowBack className="size-5" />
+        <IoIosArrowBack className="size-5" onClick={handlePrevClick} />
         <IoIosArrowForward className="size-5" />
         {/**current date button */}
         <section>December 16 2024</section>
