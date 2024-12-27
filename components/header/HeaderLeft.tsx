@@ -30,6 +30,23 @@ export default function HeaderLeft() {
     }
   };
 
+  const handleNextClick = () => {
+    switch (selectedView) {
+      case "month":
+        setMonth(selectedMonthIndex + 1);
+        break;
+      case "week":
+        setDate(todaysDate.add(1, "week"));
+        break;
+      case "day":
+        setDate(todaysDate.add(1, "day"));
+        setMonth(selectedMonthIndex + 1);
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleTodayClick = () => {
     switch (selectedView) {
       case "month":
@@ -61,7 +78,7 @@ export default function HeaderLeft() {
       </Button>
       <section className="flex gap-5">
         <IoIosArrowBack className="size-5" onClick={handlePrevClick} />
-        <IoIosArrowForward className="size-5" />
+        <IoIosArrowForward className="size-5" onClick={handleNextClick} />
         {/**current date button */}
         <section>December 16 2024</section>
       </section>
