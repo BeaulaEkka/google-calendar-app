@@ -19,10 +19,10 @@ export default function HeaderLeft() {
         setMonth(selectedMonthIndex - 1);
         break;
       case "week":
-        setDate(todaysDate.subtract(1, "week"));
+        setDate(userSelectedDate.subtract(1, "week"));
         break;
       case "day":
-        setDate(todaysDate.subtract(1, "day"));
+        setDate(userSelectedDate.subtract(1, "day"));
         setMonth(selectedMonthIndex - 1);
         break;
       default:
@@ -36,10 +36,10 @@ export default function HeaderLeft() {
         setMonth(selectedMonthIndex + 1);
         break;
       case "week":
-        setDate(todaysDate.add(1, "week"));
+        setDate(userSelectedDate.add(1, "week"));
         break;
       case "day":
-        setDate(todaysDate.add(1, "day"));
+        setDate(userSelectedDate.add(1, "day"));
         setMonth(selectedMonthIndex + 1);
         break;
       default:
@@ -80,7 +80,13 @@ export default function HeaderLeft() {
         <IoIosArrowBack className="size-5" onClick={handlePrevClick} />
         <IoIosArrowForward className="size-5" onClick={handleNextClick} />
         {/**current date button */}
-        <section>December 16 2024</section>
+        <section>
+          <h1>
+            {dayjs(new Date(dayjs().year(), selectedMonthIndex)).format(
+              "MMMM YYYY"
+            )}
+          </h1>
+        </section>
       </section>
     </div>
   );
