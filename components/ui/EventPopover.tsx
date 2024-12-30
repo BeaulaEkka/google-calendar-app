@@ -1,5 +1,8 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { Button } from "./button";
+import { IoCloseSharp } from "react-icons/io5";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
 interface EventPopoverProps {
   isOpen: boolean;
@@ -35,13 +38,24 @@ export default function EventPopover({
     onClose();
   };
 
-  handlePopoverClick = (e: React.MouseEvent) => {
+  const handlePopoverClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     onClose();
   };
   return (
-    <div className="w-full h-full bg-black/20">
-      <div className="w-[20%] h-[60%] bg-white rounded-md "></div>
+    <div className="w-full h-full bg-black/20" onClick={handleClose}>
+      <div
+        className="w-[20%] h-[60%] bg-white rounded-md "
+        ref={popoverRef}
+        onClick={handlePopoverClick}
+      >
+        <div className="mb-2 flex items-center justify-between rounded-md bg-slate-100">
+          <HiOutlineMenuAlt4 />
+          <Button variant="ghost" size="icon" onClick={handleClose}>
+            <IoCloseSharp className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
