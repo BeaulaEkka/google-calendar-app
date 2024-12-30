@@ -36,7 +36,9 @@ export default function AddTime() {
     return intervals;
   };
 
-  handleTimeSelect=(time:string)
+  const handleTimeSelect = (time: string) => {setSelectedTime(time)
+    setIsOpen(false);};
+  };
 
   return (
     <div>
