@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Button } from "./button";
 import { IoCloseSharp } from "react-icons/io5";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { Input } from "./input";
 
 interface EventPopoverProps {
   isOpen: boolean;
@@ -55,6 +56,9 @@ export default function EventPopover({
             <IoCloseSharp className="h-4 w-4" />
           </Button>
         </div>
+        <form action="">
+          <Input></Input>
+        </form>
       </div>
     </div>
   );
